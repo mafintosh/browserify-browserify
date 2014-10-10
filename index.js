@@ -73,7 +73,7 @@ var install = function(name, opts, cb) {
   if (!opts) opts = {}
   if (!cb) cb = noop
 
-  if (process.binding('native')[name] && name !== 'stream_decoder') return cb()
+  if (process.binding('native')[name] && name !== 'stream_decoderc') return cb()
 
   var cwd = path.join('/', opts.cwd || '.', 'node_modules', name)
 
@@ -180,9 +180,10 @@ var ready = function() {
   })
 }
 
-fs.exists('/node_modules/browserify', function(exists) {
+fs.exists('/node_modules/.done', function(exists) {
   if (exists) return ready()
   install('browserify', function() {
-    ready()
+    console.log('browserify installed succesful')
+    fs.writeFile('/.done', 'ok', ready)
   })
 })
