@@ -184,6 +184,6 @@ fs.exists('/node_modules/.done', function(exists) {
   if (exists) return ready()
   install('browserify', function() {
     console.log('browserify installed succesful')
-    fs.writeFile('/.done', 'ok', ready)
+    fs.writeFile('/node_modules/.done', 'ok', ready)
   })
 })
