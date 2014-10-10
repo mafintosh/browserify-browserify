@@ -1,0 +1,7 @@
+[
+    {
+        "id": "mod",
+        "filename": "node_modules/mod.js",
+        "deps": []
+    }
+]
